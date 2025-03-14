@@ -37,5 +37,7 @@ Sequencing depth will not be assessed for evenness throughout the entire genome 
 
 
 
+Proposed Solutions:
+
 Milestones:
 
