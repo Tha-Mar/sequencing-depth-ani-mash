@@ -1,5 +1,19 @@
 Overview:
 
+Improvements in next generation sequencing has allowed for a large increase in the collection of publicly available genomes. The ability to use these genomes in multiple studies is a very big benefit to researchers, but not all genomes are equal. There are several factors that can assess the quality of these genomes including sequencing depth. Sequencing depth is the number of times a region of a genome is sequenced and is calculated by dividing the total number of bases from reads that align to a genome by the total length of the genome. Research has shown that a greater sequencing depth is important for producing quality assemblies (Rocha et al.). Multiple reads over an area allow for the correction of sequencing errors and greater accuracy. Sequencing at high depths can be costly, so it is important to know how deep sequencing needs to be to achieve a desired goal. 
+
+Comparing the similarity of genomes is a common task in genomic research and can be done many ways. When comparing microbial genomes, alignment is not often used as the occurrence of horizontal gene transfer and genome rearrangement can produce inaccurate results. Instead, other metrics such as average nucleotide identity (ANI) and Mash are used. ANI is an alignment-based metric that only compares orthologous sequences instead of aligning the entire genome. Orthologous sequences can still vary greatly allowing ANI to give useful insight to the relatedness of two genomes. ANI is accurate in comparing draft genomes along with complete genomes. Mash is an alignment-free k-mer based method that is used to compare the approximate distance between genomes. Mash calculates the Jaccard distance by comparing sketches, which are a smaller subset of the full sequence data.  Mash is extremely useful when dealing with large datasets as it is very fast and has shown to produce results that correlate with ANI scores. 
+
+This pipeline will illuminate whether sequencing depth has an impact on ANI and Mash scores. The goal is to simulate genomes with varying sequencing depths for any given SRA file and calculate ANI values and Mash scores at each depth compared to the original genome.  If sequencing depth has no affect, the ANI and Mash scores should reflect that the genomes are the same. The output will show if sequencing depth impacts the accuracy of either and if it does at what level. 
+
+Sources
+
+Rocha U, Kasmanas JC, Toscan R, Sanches DS, Magnusdottir S, et al. (2024) Simulation of 69 microbial communities indicates sequencing depth and false positives are major drivers of bias in prokaryotic metagenome-assembled genome recovery. PLOS Computational Biology 20(10): e1012530.  https://doi.org/10.1371/journal.pcbi.1012530
+
+Jain, C., Rodriguez-R, L.M., Phillippy, A.M. et al. High throughput ANI analysis of 90K prokaryotic genomes reveals clear species boundaries. Nat Commun 9, 5114 (2018). https://doi.org/10.1038/s41467-018-07641-9
+
+Ondov, Brian D et al. “Mash: fast genome and metagenome distance estimation using MinHash.” Genome biology vol. 17,1 132. 20 Jun. 2016, doi:10.1186/s13059-016-0997-x
+
 Context:
 
 There is no standardized method for assembling a genome, and sequencing depth can impact the 
