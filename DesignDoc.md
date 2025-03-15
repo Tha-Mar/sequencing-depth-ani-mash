@@ -25,6 +25,7 @@ Understanding this is important, as it will provide researchers with better insi
 accuracy of their data and genomic comparisons.
 
 Sources
+
 Babarinde, I.A., Hutchins, A.P. The effects of sequencing depth on the assembly of coding and noncoding transcripts in the human genome. BMC Genomics 23, 487 (2022). https://doi.org/10.1186/s12864-022-08717-z
 
 ## Goals: 
