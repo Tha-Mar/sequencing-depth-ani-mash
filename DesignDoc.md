@@ -16,25 +16,38 @@ Ondov, Brian D et al. “Mash: fast genome and metagenome distance estimation us
 
 ## Context:
 
-There is no standardized method for assembling a genome, and sequencing depth can impact the 
-accuracy and reliability of genomic analysis. Average nucleotide identity (ANI) and Mash scores 
+There is no standardized method for assembling a genome, and it is known that sequencing depth can impact the 
+accuracy and reliability of genomic analysis (Isaac et al. 2022). Average nucleotide identity (ANI) and Mash scores 
 are commonly used to assess genome similarity, yet the impact of sequencing depth on this metrics 
 remains unclear. This project aims to evaluate how varying sequencing depths influence ANI and 
 Mash scores, and give more clarity on their reliability under these different conditions. 
 Understanding this is important, as it will provide researchers with better insight on the 
 accuracy of their data and genomic comparisons.
 
+Sources
+Babarinde, I.A., Hutchins, A.P. The effects of sequencing depth on the assembly of coding and noncoding transcripts in the human genome. BMC Genomics 23, 487 (2022). https://doi.org/10.1186/s12864-022-08717-z
+
 ## Goals: 
 
 - Create a reference genome assembly and various read sets at different depth coverages with 
-multiple random samples generated of each 
+multiple random samples generated of each.
 
+- Visualize results of the ANI and Mash scores corresponding to each read set.
+  
 - Users will be able to assess ANI and mesh scores of read sets at different depth coverages in 
-comparison with a reference genome assembly. 
+comparison with a reference genome assembly.
 
-- Success will be measured based on compared ANI and mash scores between different read sets of
-depth coverage. Higher ANI percentage and a lower mash score indicate a higher assemby
-similarity
+Success Metrics:
+
+- Successful retrieval of SRR data and correct processing of read files.
+
+- Generation of multiple read sets at different sequencing depths through random subsampling.
+
+- Successful assembly generated for each depth level.
+
+- Accurate calculation of ANI and Mash scores across the sequencing depths.
+
+- Interpretable visualization of the results that shows patterns or variations in ANI and Mash scores.
 
 ## Non-goals:
 
@@ -46,7 +59,7 @@ similarity
 
 - Sequencing depth will not be assessed for evenness throughout the entire genome assembly.
 
-
+- The project is not aimed at improving sequencing techniques or correcting errors in sequencing data.
 
 ## Proposed Solutions:
 1.	Retrieve a user-specified read file when provided an SRR# using SRA toolkit
