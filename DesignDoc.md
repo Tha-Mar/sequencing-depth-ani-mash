@@ -16,7 +16,7 @@ Ondov, Brian D et al. “Mash: fast genome and metagenome distance estimation us
 
 ## Context:
 
-There is no standardized method for assembling a genome, and it is known that sequencing depth can impact the 
+Genome assembly lacks a single standardized approach, as different methods and tools are used depending on sequencing depth, read type, and study objectives. It is known that sequencing depth can impact the 
 accuracy and reliability of genomic analysis (Babarinde & Hutchins, 2022). Average nucleotide identity (ANI) and Mash scores 
 are commonly used to assess genome similarity, yet the impact of sequencing depth on this metrics 
 remains unclear. This project aims to evaluate how varying sequencing depths influence ANI and 
