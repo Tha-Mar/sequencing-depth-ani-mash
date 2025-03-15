@@ -22,8 +22,7 @@ are commonly used to assess genome similarity, yet the impact of sequencing dept
 remains unclear. This project aims to evaluate how varying sequencing depths influence ANI and 
 Mash scores, and give more clarity on their reliability under these different conditions. 
 Understanding this is important, as it will provide researchers with better insight on the 
-accuracy of their data and genomic comparisons.Create a reference genome assembly and generate 
-multiple read sets at varying sequencing depths, with multiple random subsamples for each depth.
+accuracy of their data and genomic comparisons.
 
 ## Goals: 
 
