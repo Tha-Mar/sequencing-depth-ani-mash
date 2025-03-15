@@ -58,15 +58,15 @@ similarity
 6.	Evaluate quality of subsampled raw reads using FastQC and QC the subsample of reads using cutadapt
 7.	Assemble each subsampled dataset using SPAdes
 8.	Utilize FastANI to assess sequence similarity
-a.	Input all assembled genomes with the varying coverage depth which are compared with the reference genome
-b.	Outputs an ANI score, which provides the mean nucleotide identity of orthologous genes shared between two genomes
+    a.	Input all assembled genomes with the varying coverage depth which are compared with the reference genome
+    b.	Outputs an ANI score, which provides the mean nucleotide identity of orthologous genes shared between two genomes
 9.	Utilize Mash to assess sequence similarity
-a.	Input all assembled genomes with the varying coverage depth which are compared with the reference genome
-b.	Outputs a distance metric, the Mash distance, which estimates the mutation rate between two sequences
+    a.	Input all assembled genomes with the varying coverage depth which are compared with the reference genome
+    b.	Outputs a distance metric, the Mash distance, which estimates the mutation rate between two sequences
 10.	Further Analysis
-a.	Comparisons between varying depths of coverage
-b.	Comparisons between random subsamples at each depth
-c.	Visualizations of sequence similarities and comparisons
+    a.	Comparisons between varying depths of coverage
+    b.	Comparisons between random subsamples at each depth
+    c.	Visualizations of sequence similarities and comparisons
 
 ## Workflow
 ![image](https://github.com/user-attachments/assets/8cb7825e-5d34-42a8-ac50-94896e68e2e8)
