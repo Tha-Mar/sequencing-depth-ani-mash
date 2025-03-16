@@ -86,5 +86,6 @@ Success Metrics:
 
 ## Milestones:
 
-![image](https://github.com/user-attachments/assets/8b50a1fd-0a51-43eb-890f-fe36c8391f42)
+![image](https://github.com/user-attachments/assets/aaee18b3-ba3f-4b49-af7e-b1caaa12f56e)
+
 
