@@ -84,5 +84,6 @@ Success Metrics:
 ## Workflow
 ![image](https://github.com/user-attachments/assets/8cb7825e-5d34-42a8-ac50-94896e68e2e8)
 
-Milestones:
+## Milestones:
 
+![image](https://github.com/user-attachments/assets/72da75ae-6e55-428e-971d-ab70331a95ff)
