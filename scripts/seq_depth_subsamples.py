@@ -1,5 +1,19 @@
 from Bio import SeqIO
 import os
+import argparse
+import sys
+
+#function to parse command line arguments
+def check_arg(args=None):
+    parser = argparse.ArgumentParser(description='input location of data directory')
+    parser.add_argument('-i', '--input', help='path to input data',required ='True') #add command line arguement for input file
+    return parser.parse_args(args)
+
+#retrieve command line arguments and assign to variables
+args = check_arg(sys.argv[1:])
+infile = args.input #store input file path
+
+SRR = infile
 
 os.system('cut -f 3 ~/coverage_table > ~/depths')
 with open('../depths', 'r') as f:
@@ -11,7 +25,6 @@ with open('../depths', 'r') as f:
 
 step = 5
 cov = 5
-SRR = 'SRR32805580' # can change this to infile once we are further into the process
 seqs1 = list(SeqIO.parse('../fastq-data/'+SRR+'_1.fastq', 'fastq'))
 seqs2 = list(SeqIO.parse('../fastq-data/'+SRR+'_2.fastq', 'fastq'))
 
