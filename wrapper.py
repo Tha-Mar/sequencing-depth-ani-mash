@@ -16,6 +16,7 @@ infile = args.input #store input SRR#
 #Run script to download SRR fastq files and assemble with SPAdes
 os.system(f"python ./scripts/sratoolkit.py --input {infile}")
 os.system(f"python ./scripts/bt2.py --input {infile}")
+os.system(f'python ./scripts/seq_depth_subsamples.py --input {infile}')
 
 
 
