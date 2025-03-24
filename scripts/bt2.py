@@ -20,11 +20,11 @@ arguments = check_arg(sys.argv[1:])
 infile = arguments.input
 outfile = arguments.output'''
 
-bowtie2_index = '../bowtie2-build ../spades-out/contigs.fasta ../bt2/bt2_index'
-bowtie2_cmd = '../bowtie2 -x ../bt2_index/SRR32805580 -1 ../fastq-data/SRR32805580_1.fastq -2 ../fastq-data/SRR32805580_2.fastq -S ../bt2/SRR32805580.sam'
+bowtie2_index = '../../bowtie2-build ../spades-out/contigs.fasta ../bt2/bt2_index'
+bowtie2_cmd = '../../bowtie2 -x ../bt2_index/SRR32805580 -1 ../fastq-data/SRR32805580_1.fastq -2 ../fastq-data/SRR32805580_2.fastq -S ../bt2/SRR32805580.sam'
 
-samtools_view = '../samtools view -b ../bt2/SRR32805580.sam > ../bt2/SRR32805580.bam'
-samtools_cmd = '../samtools coverage -b ../bt2/SRR32805580.bam -o ../coverage_table'
+samtools_view = '../../samtools view -b ../bt2/SRR32805580.sam > ../bt2/SRR32805580.bam'
+samtools_cmd = '../../samtools coverage -b ../bt2/SRR32805580.bam -o ../coverage_table'
 
 os.system(bowtie2_index)
 os.system(bowtie2_cmd)
