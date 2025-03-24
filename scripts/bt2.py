@@ -21,13 +21,15 @@ infile = arguments.input
 outfile = arguments.output'''
 
 os.system('mkdir ../bt2')
-bowtie2_index = 'bowtie2-build ../spades-out/contigs.fasta ../bt2/bt2_index'
-bowtie2_cmd = 'bowtie2 -x ../bt2/bt2_index -1 ../fastq-data/SRR32805580_1.fastq -2 ../fastq-data/SRR32805580_2.fastq -S ../bt2/SRR32805580.sam'
+bowtie2_index = 'bowtie2-build ~/spades-out/contigs.fasta ~/bt2/bt2_index'
+bowtie2_cmd = 'bowtie2 -x ~/bt2/bt2_index -1 ~/fastq-data/SRR32805580_1.fastq -2 ~/fastq-data/SRR32805580_2.fastq -S ~/bt2/SRR32805580.sam'
 
-samtools_view = 'samtools view -b ../bt2/SRR32805580.sam > ../bt2/SRR32805580.bam'
-samtools_cmd = 'samtools coverage -b ../bt2/SRR32805580.bam -o ../coverage_table'
+samtools_view = 'samtools view -b ~/bt2/SRR32805580.sam > ~/bt2/SRR32805580.bam'
+samtools_sort = 'samtools sort ~/bt2/SRR32805580.bam -o ~/bt2/sorted_SRR32805580.bam'
+samtools_cmd = 'samtools depth ~/bt2/sorted_SRR32805580.bam -o ~/coverage_table '
 
 os.system(bowtie2_index)
 os.system(bowtie2_cmd)
 os.system(samtools_view)
+os.system(samtools_sort)
 os.system(samtools_cmd)
