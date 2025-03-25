@@ -41,3 +41,16 @@ for i in range(round(max_cov/step)):
     cov += step
 
 # after this there will be 5 pairs of fastq files for each depth in the specified file
+
+#Create a new directory to store QC'd subsamples
+os.system('mkdir ../sub_samples_trimmed')
+
+
+#QC subsamples
+
+# Loop through all FASTQ files in the input directory
+for file in os.listdir('../sub_samples/'):
+    basename = file[:-6]   
+    sub_cutadapt= 'cutadapt -q 20 -o ../sub_samples_trimmed/' + basename + '_trimmed.fastq ../sub_samples/'  + file
+    os.system(sub_cutadapt)
+    
