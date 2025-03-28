@@ -17,6 +17,7 @@ infile = args.input #store input SRR#
 os.system(f"python ./scripts/sratoolkit.py --input {infile}")
 os.system(f"python ./scripts/bt2.py --input {infile}")
 os.system(f'python ./scripts/seq_depth_subsamples.py --input {infile}')
+os.system(f'python ./scripts/assembly.py --input {infile}')
 
 
 
