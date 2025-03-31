@@ -2,6 +2,7 @@ import subprocess
 import argparse 
 import os 
 import glob
+import sys
 
 '''def check_arg(args=None):
     parser = argparse.ArgumentParser(description='SRR for fastANI and Mash')
