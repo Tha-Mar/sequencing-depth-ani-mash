@@ -15,7 +15,7 @@ infile = args.input #store input file path
 
 SRR = infile
 
-reads = glob.glob('../sub_samples_trimmed/'+SRR+'_20_*_1_trimmed.fastq')
+reads = glob.glob('../sub_samples_trimmed/'+SRR+'_*_*_1_trimmed.fastq')
 
 for read in reads:
     file = os.path.basename(read)
