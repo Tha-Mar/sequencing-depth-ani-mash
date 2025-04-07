@@ -16,7 +16,7 @@ infile = args.input #store input file path
 SRR = infile
 
 #get all sub assembly file paths
-assemblies = glob.glob('../../sub_assemblies/*/contigs.fasta') 
+assemblies = glob.glob('../sub_assemblies/*/contigs.fasta') 
 #path for full assembly
 full_assembly = '../spades-out/contigs.fasta'
 
