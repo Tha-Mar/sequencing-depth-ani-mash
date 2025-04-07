@@ -81,6 +81,9 @@ The output from running FastANI on all simulated genomes against the full origin
 ../fastani-mash-data/fastani_results.tab
 ```
 #### Data Visualization 
-
+The output from running the visuals R script will output four plots in png format. These images will help visually compare the ANI and MASH scores at each depth coverage. The outputs are a scatter plot, faceted scatter plot, and box plots for each scoring metric. The images are written to the following path:
+```bash
+../ani_mash_visuals/
+```
 
 
