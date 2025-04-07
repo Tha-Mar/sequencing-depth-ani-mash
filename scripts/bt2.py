@@ -19,7 +19,7 @@ fastq_filepath = '../fastq-data'
 SRR = infile
 
 os.system('mkdir ../bt2')
-bowtie2_index = 'bowtie2-build ../spades-out/contigs.fasta ~/bt2/bt2_index'
+bowtie2_index = 'bowtie2-build ../spades-out/contigs.fasta ../bt2/bt2_index'
 bowtie2_cmd = 'bowtie2 -x ../bt2/bt2_index -1 ../fastq-data/'+SRR+'_1_trimmed.fastq -2 ../fastq-data/'+SRR+'_2_trimmed.fastq -S ../bt2/'+SRR+'.sam'
 
 samtools_view = 'samtools view -b ../bt2/'+SRR+'.sam > ../bt2/'+SRR+'.bam'
