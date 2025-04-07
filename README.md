@@ -26,7 +26,7 @@ __For and in depth explanation of the project see Design_Doc.md__
 
 ## R Packages
 + ggplot2
-+ 
++ stringr
 
 ## Pipeline Functionality 
 1. wrapper.py
