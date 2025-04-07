@@ -3,7 +3,7 @@ How does sequencing depth affect ANI and MASH scores? Project by Umar Siddiqui, 
 
 ## Project Overview
 Analyzing how sequencing depth affects genome similarity metrics, specifically ANI and Mash distance. By simulating different sequencing depths, we evaluate their impact on accuracy and reliability. This study helps assess potential biases in genome comparisons due to varying coverage levels.  
-__For and in depth explanation of the project see Design_Doc.md__
+__For and in depth explanation of the project see DesignDoc.md__
 
 ## Dependencies  
 + [FastQC](https://github.com/s-andrews/FastQC)
@@ -52,6 +52,10 @@ __For and in depth explanation of the project see Design_Doc.md__
    - Takes the tables with scoring metrics to create plots to compare bewtween the different coverage subsets
    - Outputs a directory with comparison plot images
 
+## Downloading the Pipeline
+```bash
+git clone https://github.com/Tha-Mar/sequencing-depth-ani-mash.git
+```
 ## Running The Pipeline
 Once the all the necessary software and files are obtained, all that is needed to run the pipeline is the SRR file you want to test. The following provides the command required to run the pipeline. It will run a python wrapper script taking in the SRR name as the input and download the fastq files.
 ```bash
