@@ -52,6 +52,12 @@ __For and in depth explanation of the project see Design_Doc.md__
    - Takes the tables with scoring metrics to create plots to compare bewtween the different coverage subsets
    - Outputs a directory with comparison plot images
 
+## Running The Pipeline
+Once the all the necessary software and files are obtained, all that is needed to run the pipeline is the SRR file you want to test. The following provides the command required to run the pipeline. It will run a python wrapper script taking in the SRR name as the input and download the fastq files.
+```bash
+python wrapper.py SRR32805580   #*CHANGE ME to your interested SRR file*
+```
+
 ## Testing The Pipeline
 In order to test the pipeline, we have already preset a SRR file to use and shortened the number of reads so that the max coverage is 15. The SRR used in the test code is `SRR32805580`. This allows us to skip the bowtie2 step to determine the maximum coverage. It also reduces the number of assemblies that need to be made. 
 
