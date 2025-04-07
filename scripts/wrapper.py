@@ -14,6 +14,10 @@ def check_arg(args=None):
 args = check_arg(sys.argv[1:])
 infile = args.input #store input SRR#
 
+#downloads seqtk if not already downloaded
+if not os.path.exists('./seqtk/seqtk'):
+    os.system("git clone https://github.com/lh3/seqtk.git; cd seqtk; make")
+
 #Move into scripts directory
 os.chdir("./scripts")
 
