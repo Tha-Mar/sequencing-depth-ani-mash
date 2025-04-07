@@ -1,5 +1,6 @@
 import os 
-
+import Bio
+import Bio.SeqIO as SeqIO
 
 SRR = "SRR32805580"
 
