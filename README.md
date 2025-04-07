@@ -59,7 +59,7 @@ git clone https://github.com/Tha-Mar/sequencing-depth-ani-mash.git
 ## Running The Pipeline
 Once the all the necessary software and files are obtained, all that is needed to run the pipeline is the SRR file you want to test. The following provides the command required to run the pipeline. It will run a python wrapper script taking in the SRR name as the input and download the fastq files.
 ```bash
-python wrapper.py SRR32805580   #Change to your interested SRR file
+python ./scripts/wrapper.py SRR32805580   #Change to your interested SRR file
 ```
 
 ## Testing The Pipeline
@@ -67,23 +67,23 @@ In order to test the pipeline, we have already preset a SRR file to use and shor
 
 In order to run the test script, you will call the script (no input needed):
 ```bash
-python wrapper_test.py
+python ./scripts/wrapper_test.py
 ```
 ## Output
 #### MASH scores
 The output from running MASH on all simulated genomes against the full original genome will output as a tab delimited file with Reference-ID, Query-ID, Mash-distance, P-value, and Matching hashes to the following path:
 ```bash
-../fastani-mash-data/compiled_mash_distances.tab
+./fastani-mash-data/compiled_mash_distances.tab
 ```
 #### ANI values
 The output from running FastANI on all simulated genomes against the full original genome will output as a tab delimited file containing query genome, reference genome, ANI value, count of bidirectional fragment mappings, and total query fragments to the following path: 
 ```bash
-../fastani-mash-data/fastani_results.tab
+./fastani-mash-data/fastani_results.tab
 ```
 #### Data Visualization 
 The output from running the visuals R script will output four plots in png format. These images will help visually compare the ANI and MASH scores at each depth coverage. The outputs are a scatter plot, faceted scatter plot, and box plots for each scoring metric. The images are written to the following path:
 ```bash
-../ani_mash_visuals/
+./ani_mash_visuals/
 ```
 
 
