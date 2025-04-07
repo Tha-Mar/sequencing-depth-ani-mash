@@ -15,7 +15,7 @@ infile = args.input #store input file path
 
 SRR = infile
 
-os.system('cut -f 3 ~/coverage_table > ~/depths')
+os.system('cut -f 3 ../coverage_table > ../depths')
 with open('../depths', 'r') as f:
     depth = f.readlines()
     total = 0
