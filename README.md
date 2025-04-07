@@ -69,7 +69,18 @@ In order to run the test script, you will call the script (no input needed):
 ```bash
 python wrapper_test.py
 ```
-
+## Output
+#### MASH scores
+The output from running MASH on all simulated genomes against the full original genome will output as a tab delimited file with Reference-ID, Query-ID, Mash-distance, P-value, and Matching hashes to the following path:
+```bash
+../fastani-mash-data/compiled_mash_distances.tab
+```
+#### ANI values
+The output from running FastANI on all simulated genomes against the full original genome will output as a tab delimited file containing query genome, reference genome, ANI value, count of bidirectional fragment mappings, and total query fragments to the following path: 
+```bash
+../fastani-mash-data/fastani_results.tab
+```
+#### Data Visualization 
 
 
 
