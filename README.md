@@ -55,7 +55,7 @@ __For and in depth explanation of the project see Design_Doc.md__
 ## Running The Pipeline
 Once the all the necessary software and files are obtained, all that is needed to run the pipeline is the SRR file you want to test. The following provides the command required to run the pipeline. It will run a python wrapper script taking in the SRR name as the input and download the fastq files.
 ```bash
-python wrapper.py SRR32805580   #*CHANGE ME to your interested SRR file*
+python wrapper.py SRR32805580   #_CHANGE ME to your interested SRR file_
 ```
 
 ## Testing The Pipeline
