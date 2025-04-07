@@ -24,6 +24,10 @@ __For and in depth explanation of the project see Design_Doc.md__
 + argparse
 + SeqIO
 
+## R Packages
++ ggplot2
++ 
+
 ## Pipeline Functionality 
 1. wrapper.py
    - calls all scripts in pipeline given an input SRR number  
