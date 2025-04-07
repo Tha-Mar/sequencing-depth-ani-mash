@@ -1,4 +1,5 @@
 import subprocess 
+import Bio
 import Bio.SeqIO as SeqIO
 import os
 

@@ -1,3 +1,4 @@
+import Bio
 from Bio import SeqIO
 import os
 
