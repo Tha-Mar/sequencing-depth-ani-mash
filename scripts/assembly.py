@@ -15,9 +15,9 @@ infile = args.input #store input file path
 
 SRR = infile
 
-reads = glob.glob('../sub_samples_trimmed/'+SRR+'_*_*_1_trimmed.fastq')
+reads = glob.glob('../ss_trimmed-'+SRR+'/'+SRR+'_*_*_1_trimmed.fastq')
 
 for read in reads:
     file = os.path.basename(read)
-    spades_cmd = 'spades.py -1 '+read+' -2 '+read[:-15]+'2_trimmed.fastq -o ../sub_assemblies/'+file[:-16]
+    spades_cmd = 'spades.py -1 '+read+' -2 '+read[:-15]+'2_trimmed.fastq -o ../sub_assemblies-'+SRR+'/'+file[:-16]
     os.system(spades_cmd)

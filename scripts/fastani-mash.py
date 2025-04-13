@@ -16,9 +16,9 @@ infile = args.input #store input file path
 SRR = infile
 
 #get all sub assembly file paths
-assemblies = glob.glob('../sub_assemblies/*/contigs.fasta') 
+assemblies = glob.glob('../sub_assemblies-'+SRR+'/*/contigs.fasta') 
 #path for full assembly
-full_assembly = '../spades-out/contigs.fasta'
+full_assembly = '../spades-out-'+SRR+'/contigs.fasta'
 
 #downloads mash if not already downloaded
 if not os.path.exists('./mash-Linux64-v2.3/mash'):
@@ -29,39 +29,39 @@ if not os.path.exists('./mash-Linux64-v2.3/mash'):
     subprocess.run(tar_mash, shell=True)
 
 #creates directory for mash and fastani results
-os.makedirs('../fastani-mash-data', exist_ok=True)
+os.makedirs('../fastani-mash-data-'+SRR, exist_ok=True)
 mash_path = './mash-Linux64-v2.3/mash'
 
 #clears the file of old data
-open("../fastani-mash-data/compiled_mash_distances.tab", "w").close() 
+open("../fastani-mash-data-"+SRR+"/compiled_mash_distances.tab", "w").close() 
 
 #runs mash for each sub assembly
 for assembly in assemblies:
-    mash_dist = mash_path+ ' dist ' + assembly + ' ' + full_assembly + ' > ../fastani-mash-data/temp_mash_distances.tab'
+    mash_dist = mash_path+ ' dist ' + assembly + ' ' + full_assembly + ' > ../fastani-mash-data-'+SRR+'/temp_mash_distances.tab'
     subprocess.run(mash_dist, shell=True)
-    with open ('../fastani-mash-data/temp_mash_distances.tab', 'r') as temp_data:
+    with open ('../fastani-mash-data-'+SRR+'/temp_mash_distances.tab', 'r') as temp_data:
         input = temp_data.readline()
-    with open ('../fastani-mash-data/compiled_mash_distances.tab','a') as output:
+    with open ('../fastani-mash-data-'+SRR+'/compiled_mash_distances.tab','a') as output:
         output.write(input + '\n')
 
 #removes the temporary file
-os.remove('../fastani-mash-data/temp_mash_distances.tab')
+os.remove('../fastani-mash-data-'+SRR+'/temp_mash_distances.tab')
 
 #clears the file of old data
-open("../fastani-mash-data/fastani_results.tab", "w").close()
+open("../fastani-mash-data-"+SRR+"/fastani_results.tab", "w").close()
 
 #runs fastani for each sub assembly
 for assembly in assemblies:
-    fastani_cmd = 'fastANI -q ' + assembly + ' -r ' + full_assembly + ' -o ../fastani-mash-data/temp_fastani.tab'
+    fastani_cmd = 'fastANI -q ' + assembly + ' -r ' + full_assembly + ' -o ../fastani-mash-data-'+SRR+'/temp_fastani.tab'
     subprocess.run(fastani_cmd, shell=True)
     
-    with open('../fastani-mash-data/temp_fastani.tab', 'r') as temp_file:
+    with open('../fastani-mash-data-'+SRR+'/temp_fastani.tab', 'r') as temp_file:
             result = temp_file.readline()
-    with open('../fastani-mash-data/fastani_results.tab', 'a') as output:
+    with open('../fastani-mash-data-'+SRR+'/fastani_results.tab', 'a') as output:
             output.write(result + '\n')
 
 #removes the temporary file
-os.remove('../fastani-mash-data/temp_fastani.tab')
+os.remove('../fastani-mash-data-'+SRR+'/temp_fastani.tab')
 
 
 

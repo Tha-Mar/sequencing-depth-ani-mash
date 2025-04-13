@@ -12,19 +12,21 @@ def check_arg(args=None):
 args = check_arg(sys.argv[1:])
 infile = args.input #store input file path
 
-#create directory for fastq files 
-os.makedirs('../fastq-data',exist_ok=True) 
-fastq_filepath = '../fastq-data'
-
 SRR = infile
 
-os.system('mkdir ../bt2')
-bowtie2_index = 'bowtie2-build ../spades-out/contigs.fasta ../bt2/bt2_index'
-bowtie2_cmd = 'bowtie2 -x ../bt2/bt2_index -1 ../fastq-data/'+SRR+'_1_trimmed.fastq -2 ../fastq-data/'+SRR+'_2_trimmed.fastq -S ../bt2/'+SRR+'.sam'
+#create directory for fastq files 
+os.makedirs('../fastq-data-'+SRR,exist_ok=True) 
+fastq_filepath = '../fastq-data-'+SRR
 
-samtools_view = 'samtools view -b ../bt2/'+SRR+'.sam > ../bt2/'+SRR+'.bam'
-samtools_sort = 'samtools sort ../bt2/'+SRR+'.bam -o ../bt2/sorted_'+SRR+'.bam'
-samtools_cmd = 'samtools depth ../bt2/sorted_'+SRR+'.bam -o ../coverage_table '
+
+
+os.system('mkdir ../bt2-'+SRR)
+bowtie2_index = 'bowtie2-build ../spades-out-'+SRR+'/contigs.fasta ../bt2-'+SRR+'/bt2_index'
+bowtie2_cmd = 'bowtie2 -x ../bt2-'+SRR+'/bt2_index -1 ../fastq-data-'+SRR+'/'+SRR+'_1_trimmed.fastq -2 ../fastq-data-'+SRR+'/'+SRR+'_2_trimmed.fastq -S ../bt2-'+SRR+'/'+SRR+'.sam'
+
+samtools_view = 'samtools view -b ../bt2-'+SRR+'/'+SRR+'.sam > ../bt2-'+SRR+'/'+SRR+'.bam'
+samtools_sort = 'samtools sort ../bt2-'+SRR+'/'+SRR+'.bam -o ../bt2-'+SRR+'/sorted_'+SRR+'.bam'
+samtools_cmd = 'samtools depth ../bt2-'+SRR+'/sorted_'+SRR+'.bam -o ../coverage_table-'+SRR
 
 os.system(bowtie2_index)
 os.system(bowtie2_cmd)

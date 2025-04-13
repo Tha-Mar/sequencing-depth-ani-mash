@@ -27,7 +27,7 @@ os.system(f"python bt2.py --input {infile}")
 os.system(f'python seq_depth_subsamples.py --input {infile}')
 os.system(f'python assembly.py --input {infile}')
 os.system(f'python fastani-mash.py --input {infile}')
-os.system('Rscript visuals.R')
+os.system(f'Rscript visuals.R {infile}')
 
 
 

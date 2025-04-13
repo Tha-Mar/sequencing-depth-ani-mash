@@ -9,19 +9,27 @@ if (!requireNamespace("ggplot2", quietly = TRUE)) {
 }
 library(ggplot2)
 
+args <- commandArgs(trailingOnly = TRUE)
+# Check if arguments are provided
+if (length(args) == 0) {
+  stop("No arguments provided")
+}
+
+SRR <- args[1]
 
 ###### Reading Results ######
 
-
+ANI_results <- paste0('../fastani-mash-data-',SRR,'/fastani_results.tab')
+MASH_results <- paste0('../fastani-mash-data-',SRR,'/compiled_mash_distances.tab')
 #Read Fastani output file and store as a dataframe
-ani_result <- read.table("../fastani-mash-data/fastani_results.tab", header=FALSE, sep="\t", row.names=1, check.names=FALSE)
+ani_result <- read.table(ANI_results, header=FALSE, sep="\t", row.names=1, check.names=FALSE)
 
 #Add header to ani table
 ani_header <- cbind("reference", "ani", "ortholog_count", "total")
 colnames(ani_result) <- ani_header
 
 #Read mash output file and store as a dataframe
-mash_result <- read.table("../fastani-mash-data/compiled_mash_distances.tab", header=FALSE, sep="\t", row.names=1, check.names=FALSE)
+mash_result <- read.table(MASH_results, header=FALSE, sep="\t", row.names=1, check.names=FALSE)
 
 #Add header to ani table
 mash_header <- cbind("reference", "mash", "p_value", "matching_hashes")
