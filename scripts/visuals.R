@@ -81,6 +81,10 @@ if (!dir.exists("../ani_mash_visuals")) {
   dir.create("../ani_mash_visuals")
 } 
 
+
+#Write combined table as tab delimited file
+write.table(combined_df, file="../ani_mash_visuals/ani_mash_score_table.txt", sep="\t", quote=F)
+
 ## Scatter Plot ##
 
 # Save Plot
