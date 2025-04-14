@@ -12,8 +12,8 @@ library(ggplot2)
 
 ###### Reading Results ######
 
-ANI_results <- paste0('../fastani-mash-data-test/fastani_results.tab')
-MASH_results <- paste0('../fastani-mash-data-test/compiled_mash_distances.tab')
+ANI_results <- paste0('../test-fastani-mash-data/fastani_results.tab')
+MASH_results <- paste0('../test-fastani-mash-data/compiled_mash_distances.tab')
 #Read Fastani output file and store as a dataframe
 ani_result <- read.table(ANI_results, header=FALSE, sep="\t", row.names=1, check.names=FALSE)
 
@@ -70,59 +70,91 @@ combined_df$subset <- subset
 
 # Create a directory to save visuals
 # Check if the directory exists before creating it
-if (!dir.exists("../ani_mash_visuals")) {
-  dir.create("../ani_mash_visuals")
+if (!dir.exists("../test_ani_mash_visuals")) {
+  dir.create("../test_ani_mash_visuals")
 } 
 
 
 #Write combined table as tab delimited file
-write.table(combined_df, file="../ani_mash_visuals/ani_mash_score_table.txt", sep="\t", quote=F)
+write.table(combined_df, file="../test_ani_mash_visuals/ani_mash_score_table.txt", sep="\t", quote=F)
 
 ## Scatter Plot ##
 
 # Save Plot
-png("../ani_mash_visuals/Scatter_plot.png", width = 1200, height = 900)  # Open graphics device
+png("../test_ani_mash_visuals/Scatter_plot.png", width = 800, height = 600)  # Open graphics device
 # Make Plot
 ggplot(combined_df, aes(x = ani, y = mash, color = factor(coverage))) +
   geom_point() +
   labs(x = "ANI Score", y = "MASH Score", color = "Coverage Depth") +
-  theme_minimal()
+  theme_minimal() +
+  theme(
+    axis.title.x = element_text(size = 16),
+    axis.title.y = element_text(size = 16),
+    axis.text.x = element_text(size = 14),
+    axis.text.y = element_text(size = 14),
+    legend.title = element_text(size = 14),
+    legend.text = element_text(size = 12)
+  )
 #Close device
 dev.off()  
 
 ## Box Plot (ANI) ##
 
 # Save Plot
-png("../ani_mash_visuals/ani_boxplot_plot.png", width = 1200, height = 900)  # Open graphics device
+png("../test_ani_mash_visuals/ani_boxplot_plot.png", width = 800, height = 600)  # Open graphics device
 # Make plot 
 ggplot(combined_df, aes(x = factor(coverage), y = ani, fill = factor(coverage))) +
   geom_boxplot() +
   labs(x = "Coverage Depth", y = "ANI Score") +
-  theme_minimal()
+  theme_minimal() +
+  theme(
+    axis.title.x = element_text(size = 16),
+    axis.title.y = element_text(size = 16),
+    axis.text.x = element_text(size = 14),
+    axis.text.y = element_text(size = 14),
+    legend.title = element_text(size = 14),
+    legend.text = element_text(size = 12)
+  )
 #Close device
 dev.off()  
 
 ## Box Plot (mash) ##
 
 # Save Plot
-png("../ani_mash_visuals/mash_boxplot_plot.png", width = 1200, height = 900)  # Open graphics device
+png("../test_ani_mash_visuals/mash_boxplot_plot.png", width = 800, height = 600)  # Open graphics device
 # Make plot 
 ggplot(combined_df, aes(x = factor(coverage), y = mash, fill = factor(coverage))) +
   geom_boxplot() +
   labs(x = "Coverage Depth", y = "mash Score") +
-  theme_minimal()
+  theme_minimal() +
+  theme(
+    axis.title.x = element_text(size = 16),
+    axis.title.y = element_text(size = 16),
+    axis.text.x = element_text(size = 14),
+    axis.text.y = element_text(size = 14),
+    legend.title = element_text(size = 14),
+    legend.text = element_text(size = 12)
+  )
 #Close device
 dev.off()  
 
 ## Faceted Scatter Plot
 
 # Save Plot
-png("../ani_mash_visuals/faceted_scatter_plot.png", width = 1200, height = 900)  # Open graphics device
+png("../test_ani_mash_visuals/faceted_scatter_plot.png", width = 800, height = 600)  # Open graphics device
 ggplot(combined_df, aes(x = ani, y = mash)) +
   geom_point() +
   facet_wrap(~ coverage) +
   labs(x = "ANI Score", y = "MASH Score") +
-  theme_minimal()
+  theme_minimal() +
+  theme(
+    axis.title.x = element_text(size = 16),
+    axis.title.y = element_text(size = 16),
+    axis.text.x = element_text(size = 14),
+    axis.text.y = element_text(size = 14),
+    legend.title = element_text(size = 14),
+    legend.text = element_text(size = 12)
+  )
 #Close device
 dev.off()  
 
