@@ -63,7 +63,7 @@ python ./scripts/wrapper.py SRR32805580   #Change to your interested SRR file
 ```
 
 ## Testing The Pipeline
-In order to test the pipeline, we have already preset a SRR file to use and shortened the number of reads so that the max coverage is 15. The SRR used in the test code is `SRR32805580`. This allows us to skip the bowtie2 step to determine the maximum coverage. It also reduces the number of assemblies that need to be made. 
+In order to test the pipeline, we have already preset a SRR file to use and shortened the number of reads so that the max coverage is 15. The SRR used in the test code is `SRR32805580`. We've already assembled the reads for these coverages and saved the contig fasta files in the `test_data` directory.  This allows us to skip the bowtie2 step to determine the maximum coverage. It also skips running SPAdes to make the subset assemblies. The script will only run Fastani and MASH to find the scores at each depth of coverage. It will output the results in table and visual format in `ani_mash_visuals`.
 
 In order to run the test script, you will call the script (no input needed):
 ```bash
