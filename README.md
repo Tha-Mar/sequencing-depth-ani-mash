@@ -63,7 +63,7 @@ python ./scripts/wrapper.py SRR32805580   #Change to your interested SRR file
 ```
 
 ## Testing The Pipeline
-In order to test the pipeline, we have already preset a SRR file to use and shortened the number of reads so that the max coverage is 15. The SRR used in the test code is `SRR32805580`. This allows us to skip the bowtie2 step to determine the maximum coverage. It also reduces the number of assemblies that need to be made. 
+In order to test the pipeline, we have already preset a SRR file to use and shortened the number of reads so that the max coverage is 15. The SRR used in the test code is `SRR32805580`. We've already assembled the reads for these coverages and saved the contig fasta files in the `test_data` directory.  This allows us to skip the bowtie2 step to determine the maximum coverage. It also skips running SPAdes to make the subset assemblies. The output will be the same as running with real data and found in the `ani_mash_visuals/` directory.
 
 In order to run the test script, you will call the script (no input needed):
 ```bash
@@ -81,7 +81,7 @@ The output from running FastANI on all simulated genomes against the full origin
 ./fastani-mash-data/fastani_results.tab
 ```
 #### Data Visualization 
-The output from running the visuals R script will output four plots in png format. These images will help visually compare the ANI and MASH scores at each depth coverage. The outputs are a scatter plot, faceted scatter plot, and box plots for each scoring metric. The images are written to the following path:
+The output from running the visuals R script will output four plots in png format and table with ani and mash scores for each coverage. These images will help visually compare the ANI and MASH scores at each depth coverage. The outputs are a scatter plot, faceted scatter plot, and box plots for each scoring metric. The images are written to the following path:
 ```bash
 ./ani_mash_visuals/
 ```
