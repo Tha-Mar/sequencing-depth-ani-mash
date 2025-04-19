@@ -65,7 +65,7 @@ python ./scripts/wrapper.py -i SRR32805580   #Change to your interested SRR file
 ## Testing The Pipeline
 In order to test the pipeline, we have already preset a SRR file to use and shortened the number of reads so that the max coverage is 15. The SRR used in the test code is `SRR32805580`. We've already assembled the reads for these coverages and saved the contig fasta files in the `test_data` directory.  This allows us to skip the bowtie2 step to determine the maximum coverage. It also skips running SPAdes to make the subset assemblies. The output will be the same as running with real data and found in the `test-ani_mash_visuals/` directory.
 
-In order to run the test script, you will call the script (no input needed):
+In order to run the test script, you will call the script wrapper_test.py (no input needed):
 ```bash
 python ./scripts/wrapper_test.py
 ```
@@ -85,5 +85,6 @@ The output from running the visuals R script will output four plots in png forma
 ```bash
 ./ani_mash_visuals/
 ```
+
 
 
