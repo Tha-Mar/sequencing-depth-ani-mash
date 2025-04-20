@@ -112,8 +112,7 @@ ggplot(combined_df, aes(x = factor(coverage), y = ani, fill = factor(coverage)))
     axis.title.y = element_text(size = 16),
     axis.text.x = element_text(size = 14),
     axis.text.y = element_text(size = 14),
-    legend.title = element_text(size = 14),
-    legend.text = element_text(size = 12)
+    legend.position = "none"
   )
 #Close device
 dev.off()  
@@ -132,8 +131,7 @@ ggplot(combined_df, aes(x = factor(coverage), y = mash, fill = factor(coverage))
     axis.title.y = element_text(size = 16),
     axis.text.x = element_text(size = 14),
     axis.text.y = element_text(size = 14),
-    legend.title = element_text(size = 14),
-    legend.text = element_text(size = 12)
+    legend.position = "none"
   )
 #Close device
 dev.off()  
