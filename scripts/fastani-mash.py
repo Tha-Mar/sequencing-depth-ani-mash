@@ -36,13 +36,16 @@ mash_path = './mash-Linux64-v2.3/mash'
 open("../fastani-mash-data-"+SRR+"/compiled_mash_distances.tab", "w").close() 
 
 #runs mash for each sub assembly
+mash_count = 0
 for assembly in assemblies:
     mash_dist = mash_path+ ' dist ' + assembly + ' ' + full_assembly + ' > ../fastani-mash-data-'+SRR+'/temp_mash_distances.tab'
     subprocess.run(mash_dist, shell=True)
     with open ('../fastani-mash-data-'+SRR+'/temp_mash_distances.tab', 'r') as temp_data:
         input = temp_data.readline()
-    with open ('../fastani-mash-data-'+SRR+'/compiled_mash_distances.tab','a') as output:
-        output.write(input + '\n')
+    if input:
+        mash_count += 1
+        with open ('../fastani-mash-data-'+SRR+'/compiled_mash_distances.tab','a') as output:
+            output.write(input + '\n')
 
 #removes the temporary file
 os.remove('../fastani-mash-data-'+SRR+'/temp_mash_distances.tab')
@@ -51,14 +54,18 @@ os.remove('../fastani-mash-data-'+SRR+'/temp_mash_distances.tab')
 open("../fastani-mash-data-"+SRR+"/fastani_results.tab", "w").close()
 
 #runs fastani for each sub assembly
+fastani_count = 0
 for assembly in assemblies:
     fastani_cmd = 'fastANI -q ' + assembly + ' -r ' + full_assembly + ' -o ../fastani-mash-data-'+SRR+'/temp_fastani.tab'
     subprocess.run(fastani_cmd, shell=True)
     
-    with open('../fastani-mash-data-'+SRR+'/temp_fastani.tab', 'r') as temp_file:
+    if os.path.getsize('../fastani-mash-data-'+SRR+'/temp_fastani.tab') > 0:
+        with open('../fastani-mash-data-'+SRR+'/temp_fastani.tab', 'r') as temp_file:
             result = temp_file.readline()
-    with open('../fastani-mash-data-'+SRR+'/fastani_results.tab', 'a') as output:
-            output.write(result + '\n')
+        if result:
+            fastani_count += 1
+            with open('../fastani-mash-data-'+SRR+'/fastani_results.tab', 'a') as output:
+                output.write(result + '\n')
 
 #removes the temporary file
 os.remove('../fastani-mash-data-'+SRR+'/temp_fastani.tab')
