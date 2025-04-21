@@ -58,14 +58,13 @@ split_values <- str_split(coverage_subset, "_")
 coverage <- c()
 subset <- c()
 for (pair in split_values) {
-  # Check if coverage is 5 and change it to "05" if true
-  if (pair[1] == 5) {
-    coverage <- c(coverage, "05")  # Append "05" as a string
-  } else {
-    coverage <- c(coverage, pair[1])  # Append the actual coverage value
-  }
+  # Pad coverage with leading zero if needed
+  coverage_value <- sprintf("%02d", as.integer(pair[1]))
+  coverage <- c(coverage, coverage_value)
+
   subset <- c(subset, pair[2])
 }
+
 
 #Add vectors to combined dataframe
 combined_df$coverage <- coverage
@@ -112,7 +111,7 @@ png("../ani_mash_visuals/ani_boxplot_plot.png", width = 800, height = 600)  # Op
 # Make plot 
 ggplot(combined_df, aes(x = factor(coverage), y = ani, fill = factor(coverage))) +
   geom_boxplot() +
-  labs(x = "Coverage Depth", y = "ANI Score") +
+  labs(x = "Sequencing Depth", y = "ANI Score") +
   theme_minimal() +
   theme(
     axis.title.x = element_text(size = 16),
@@ -131,7 +130,7 @@ png("../ani_mash_visuals/mash_boxplot_plot.png", width = 800, height = 600)  # O
 # Make plot 
 ggplot(combined_df, aes(x = factor(coverage), y = mash, fill = factor(coverage))) +
   geom_boxplot() +
-  labs(x = "Coverage Depth", y = "mash Score") +
+  labs(x = "Sequencing Depth", y = "mash Score") +
   theme_minimal() +
   theme(
     axis.title.x = element_text(size = 16),
