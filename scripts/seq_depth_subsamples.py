@@ -31,6 +31,15 @@ seqs2 = list(SeqIO.parse('../fastq-data-'+SRR+'/'+SRR+'_2.fastq', 'fastq'))
 os.system('mkdir ../sub_samples-'+SRR)
 seeds = ['100', '3', '44']
 
+fir_read1 = str(round(1/max_cov*len(seqs1)))
+fir_read2 = str(round(1/max_cov*len(seqs2)))
+
+for k in range(3):
+    command1 = '../seqtk/seqtk sample -s'+seeds[k]+' ../fastq-data-'+SRR+'/'+SRR+'_1.fastq '+fir_read1+' > ../sub_samples-'+SRR+'/'+SRR+'_1_'+str(k)+'_1.fastq'  
+    command2 = '../seqtk/seqtk sample -s'+seeds[k]+' ../fastq-data-'+SRR+'/'+SRR+'_2.fastq '+fir_read2+' > ../sub_samples-'+SRR+'/'+SRR+'_1_'+str(k)+'_2.fastq'
+    os.system(command1)
+    os.system(command2)
+
 for i in range(round(max_cov/step)):
     read1 = str(round(cov/max_cov*len(seqs1)))
     read2 = str(round(cov/max_cov*len(seqs2)))
