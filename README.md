@@ -59,7 +59,7 @@ git clone https://github.com/Tha-Mar/sequencing-depth-ani-mash.git
 ## Running The Pipeline
 Once the all the necessary software and files are obtained, all that is needed to run the pipeline is the SRR file you want to test. The following provides the command required to run the pipeline. It will run a python wrapper script taking in the SRR name as the input and download the fastq files.
 ```bash
-python ./scripts/wrapper.py SRR32805580   #Change to your interested SRR file
+python ./scripts/wrapper.py -i SRR32805580   #Change to your interested SRR file
 ```
 
 ## Testing The Pipeline
