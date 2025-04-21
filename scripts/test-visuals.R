@@ -122,7 +122,7 @@ png("../test_ani_mash_visuals/mash_boxplot_plot.png", width = 800, height = 600)
 # Make plot 
 ggplot(combined_df, aes(x = factor(coverage), y = mash, fill = factor(coverage))) +
   geom_boxplot() +
-  labs(x = "Sequencing Depth", y = "mash Score") +
+  labs(x = "Sequencing Depth", y = "MASH Score") +
   theme_minimal() +
   theme(
     axis.title.x = element_text(size = 16),
