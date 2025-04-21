@@ -111,7 +111,7 @@ png("../ani_mash_visuals/ani_boxplot_plot.png", width = 800, height = 600)  # Op
 # Make plot 
 ggplot(combined_df, aes(x = factor(coverage), y = ani, fill = factor(coverage))) +
   geom_boxplot() +
-  labs(x = "Sequence Depth", y = "ANI Score") +
+  labs(x = "Sequencing Depth", y = "ANI Score") +
   theme_minimal() +
   theme(
     axis.title.x = element_text(size = 16),
@@ -130,7 +130,7 @@ png("../ani_mash_visuals/mash_boxplot_plot.png", width = 800, height = 600)  # O
 # Make plot 
 ggplot(combined_df, aes(x = factor(coverage), y = mash, fill = factor(coverage))) +
   geom_boxplot() +
-  labs(x = "Sequence Depth", y = "mash Score") +
+  labs(x = "Sequencing Depth", y = "mash Score") +
   theme_minimal() +
   theme(
     axis.title.x = element_text(size = 16),
