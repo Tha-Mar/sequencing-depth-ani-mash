@@ -73,12 +73,12 @@ python ./scripts/wrapper_test.py
 #### MASH scores
 The output from running MASH on all simulated genomes against the full original genome will output as a tab delimited file with Reference-ID, Query-ID, Mash-distance, P-value, and Matching hashes to the following path:
 ```bash
-./fastani-mash-data/compiled_mash_distances.tab
+./fastani-mash-data-<input SRR number>/compiled_mash_distances.tab
 ```
 #### ANI values
 The output from running FastANI on all simulated genomes against the full original genome will output as a tab delimited file containing query genome, reference genome, ANI value, count of bidirectional fragment mappings, and total query fragments to the following path: 
 ```bash
-./fastani-mash-data/fastani_results.tab
+./fastani-mash-data-<input SRR number>/fastani_results.tab
 ```
 #### Data Visualization 
 The output from running the visuals R script will output four plots in png format and table with ani and mash scores for each coverage. These images will help visually compare the ANI and MASH scores at each depth. The outputs are a scatter plot, faceted scatter plot, and box plots for each scoring metric. The images are written to the following path:
