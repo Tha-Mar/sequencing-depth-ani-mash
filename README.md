@@ -49,7 +49,7 @@ __For and in depth explanation of the project see DesignDoc.md__
    - Each subset assembly is compared with the full genome assembly to calculate the ANI and Mash score
    - Outputs two tables, one for each scoring metric
 7. visuals.R
-   - Takes the tables with scoring metrics to create plots to compare bewtween the different depth subsets
+   - Takes the tables with scoring metrics to create plots to compare between the different depth subsets
    - Outputs a directory with comparison plot images
 
 ## Downloading the Pipeline
